@@ -1,0 +1,52 @@
+声明：本内容与面试无关，不属于任何公司的面试题目，未经允许不得转载。
+（1）char使用多少字节存储？存储编码方式是什么？
+（2）String为什么是线程安全的？
+（3）utf-16采用多少字节存储unicode编码？
+（4）\0表示什么？
+（5）String temp="hello world"; 这行代码的存储实现过程？
+（6）new的用法？
+（7）--i 的使用场景举例？
+（8）String.intern()方法在JDK1.6和JDK1.7的区别？
+（9） 代码分析：
+	public synchronized E peek() 
+	{
+		int    len = size();
+		if (len == 0)
+		{
+			throw new EmptyStackException();
+		}
+		return elementAt(len - 1);
+	}
+	为什么len==0的时候不返回null呢，而是要抛出异常？
+（10）以下命令的含义：
+    -Xms和-Xmx
+    -XX:PerSize和-XX:MaxPerSize
+    -Xss
+（11）T和Object的区别？
+（12）<T>的用法？
+（13）如何查看JVM加载了多少类？
+（14）JVM内存回收的常用算法？
+（15）新生代内存的划分？设置新生代内存大小的参数？
+	  一个Eden区，两个Survivor区，默认为：8:1:1，可通过-XX:SurvivorRatio进行调节；-Xmn
+（16）JVM log日志打印所需要的参数：http://ifeve.com/useful-jvm-flags-part-8-gc-logging/
+（17）final变量的初始化：http://blog.sina.com.cn/s/blog_4de067e40100nl0j.html
+（18）A调用一个B，而B抛出了受检异常，但是A既不想处理，又不想再抛出受检异常，只想抛出一个异常，问怎么办？
+（19）对象在内存中的生命周期是什么样的？
+	  新生代（伊甸园区，存活区），老年代
+（20）证明一下，在计算机中：a+b+c不等于c+b+a
+		今天作业题，我觉的是一个考察数据溢出和数据类型题目
+		1.如果a,b,c都是String类型，就会有a+b+c != c+b+a
+		2.如果a,b,c都是数据类型，
+		使用数据溢出,来使a+b+c!=c+b+a
+		a,b为窄的数据类型，c为宽的数据类型,
+		一个窄的数据类型与宽的数据类型运算，会得到一个宽的数据类型。
+		例如：
+		long a = 1L;
+		int b = Integer.MAX_VALUE;
+		int c = Integer.MAX_VALUE;
+		System.out.println((a+b+c) == (c+b+a));//false
+（21）cache的用法？
+（22）mybatis-3-mapper.dtd存放的路径？
+（23）#REQUIRED的含义是什么呢？
+（24）Throwable th =  new Throwable(); 中th包含的信息是什么呢？
+	  th是个对象，与其他对象不同的是，它包含的信息都是些与它出生相关的信息，例如它在哪行生成的，在那个文件生成的等
